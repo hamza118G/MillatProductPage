@@ -158,38 +158,6 @@ $.ajax({
 
 
 
-function addNewRow() {
-    var table = document.getElementById("employee-table");
-    var rowCount = table.rows.length;
-    var cellCount = table.rows[0].cells.length;
-    var row = table.insertRow(rowCount);
-    for (var i = 0; i < cellCount; i++) {
-        var cell = row.insertCell(i);
-        if (i < cellCount - 1) {
-            cell.innerHTML = '<input type="text"  class="inner-cell" />';
-        } else {
-            cell.innerHTML = '<div  id="text"   value="delete" onclick="deleteRow(this)" /><i class="fa-solid fa-trash" style="color: #ee1111;"></i></div>';
-        }
-    }
-}
-
-// This method will delete a row 
-
-function deleteRow(ele) {
-    var table = document.getElementById('employee-table');
-    var rowCount = table.rows.length;
-    if (ele) {
-
-        ele.parentNode.parentNode.remove();
-    } else {
-
-        table.deleteRow(rowCount - 1);
-    }
-}
-
-
-
-
 
 
 
@@ -259,29 +227,31 @@ clearIcon.addEventListener('click', function () {
 
 
 
-
-
-document.querySelector('#addVariationButton').addEventListener('click', addVariation);
-function addVariation() {
-    // Get the selected attribute value 
-    var attribute = document.getElementById('employee-table') ;
-    var attributes = attribute.value;
-    
-
-document.getElementById('text').innerHTML = attributes
-console.log("text", text)
   
 
-    // Create a new row in the table
-    var table = document.getElementById('employee-table');
-    var row = table.insertRow();
-  
-    // Insert the attribute value into the attribute column
-    var attributeCell = row.insertCell(0);
-    attributeCell.innerHTML = attribute;
+  function addRow() {
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(-1);
 
-    console.log(attribute,"field")
-  
-    // ... (add code for variation, quantity, and action columns if necessary)
+    var input1 = document.getElementById("variationCategory").value;
+    var input2 = document.getElementById("variationCategory-child").value;
+    var input3 = document.getElementById("input3").value;
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+
+    cell1.innerHTML = input1;
+    cell2.innerHTML = input2;
+    cell3.innerHTML = input3;
+    cell4.innerHTML = '<div onclick="removeRow(this)"><i class="fa-solid fa-trash-can" style="color: #d60505;"></div>';
+
+    console.log("rows", row )
+}
+
+
+  function removeRow(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
   }
-  

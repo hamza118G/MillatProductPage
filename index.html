@@ -214,36 +214,33 @@
         <div class="row" id="rows">
 
 
-          <div class="input-field col" id="inputField1">
-
-
-            <p for="input1 col">Attribute</p>
-            <select class="variationDropdown form-control " style="width: 100%" id="variationCategory"></select>
+          <div class="input-field col " id="inputField1">
+            <p>Attribute</p>
+            <select class="variationDropdown form-control input1 " style="width: 100%" id="variationCategory"></select>
           </div>
 
           <div class="input-field col" id="inputField2">
-            <p for="input2">Variation</p>
-            <select class="variationChildDropdown form-control" style="width: 100%" id="variationCategory-child"></select>
+            <p >Variation</p>
+            <select class="variationChildDropdown form-control input2" style="width: 100%" id="variationCategory-child"></select>
           </div>
 
         </div>
         <div class="input-field input-field3 col " id="inputField3" style="
         width: 96%;">
-          <p for="input3">Quantity</p>    
-          <input type="text" class="Quantity-adjust">
-
+          <p>Quantity</p>    
+          <input type="text" id="input3" class="Quantity-adjust">
           <br>
           <div class="Quantity-button">
             <div id="contain">
               
-              <button type="button" id="addVariationButton" class="btn btn-info" onclick="addNewRow() " ;>+ Add Variation</button>
+              <button type="button"  class="btn btn-info" onclick="addRow()" ;>+ Add Variation</button>
               <br><br>
-              <table id="employee-table">
-                <tr class="Quantity-table">
-                  <th >Attribute</th>
+              <table id="myTable">
+                <tr>
+                  <th>Attribute</th>
                   <th>Variation</th>
                   <th>Quantity</th>
-                  <th>Action</th> 
+                  <th>Action</th>
                 </tr>
               </table>
             </div>
