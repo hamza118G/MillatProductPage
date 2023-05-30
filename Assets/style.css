@@ -302,7 +302,7 @@ input:checked {
 }
 
 .slight-adjust {
-    width: 95%;
+    width: 85%;
 }
 
 .variation {
@@ -372,8 +372,174 @@ table {
     border-collapse: collapse;
   }
 
-  th, td {
+   td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
+    box-shadow: #818181;
   }
+  th{
+    height: 40px;
+    text-align: center;
+   
+  }
+ 
+  .wrap {
+    max-width: 60%;
+    padding-left: 20px;
+  }
+  
+  #preview {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color: #ddd;
+    border: 8px solid #fff;
+   
+  }
+  #preview:after {
+    content: "IMAGE NOT AVALIABLE";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+  }
+  #preview img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    min-height: 100%;
+  }
+  
+  .file {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 2.5rem;
+  }
+  .file input {
+    min-width: 30rem;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  .file input:focus ~ .file-custom {
+    box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.2rem #0074d9;
+  }
+  
+  .file-custom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: 2.5rem;
+    padding: 1rem 1rem 0;
+    line-height: 0.5;
+    color: #555;
+    background-color: #fff;
+    border: 0.075rem solid #ddd;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .file-custom:after {
+    content: "No file Choosen";
+    position: absolute;
+    right: 2rem
+  }
+  .file-custom.active:after {
+    content: attr(data-label);
+  }
+  .file-custom:before {
+    position: absolute;
+    top: -0.075rem;
+    right: 22.465rem;
+    bottom: -0.075rem;
+    z-index: 6;
+    display: block;
+    content: "Choose File";
+    height: 2.5rem;
+    padding: 1rem 1rem 0;
+    line-height: 0.5;
+    color: #555;
+    background-color: #eee;
+    border: 0.075rem solid #ddd;
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+  .Product-img{
+  
+    padding-left: 10px;
+    padding-top: 80px;
+  }
+
+  .Multiple-Images{
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  .detail-images-container img{
+    width: 100px;
+    height: 100px;
+  }
+  .image-container{
+  
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dropzone.dz-clickable {
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.dropzone {
+    min-height: 100px;
+    background: #fff;
+    padding: 20px 20px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+.dropzone a{
+    display: flow-root;
+}
+
+.dropzone-anchor{
+    font-size: 14px;
+}
+.dropzone-submit{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.submit-button{
+    margin-left: 20px;
+    margin-top: 50px;
+
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    text-align: center;
+    align-items: center;
+    padding-right: 50px;
+    padding-left: 10px;
+}
+.footer-left{
+    padding-left: 50px;
+}

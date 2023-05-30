@@ -1,20 +1,18 @@
+//Accordians toogle on navbar
 function toggleAccordion(event) {
     event.preventDefault();
 
-
     const header = event.target.closest('a');
-
-
     header.classList.toggle('active');
 
     const content = header.nextElementSibling;
     content.style.display = content.style.display === 'block' ? 'none' : 'block';
 }
 
-
+// Product Catergories Select2 
 
 $.ajax({
-    url: 'https://e5c4-81-19-209-53.ngrok-free.app/api/EcommerceProduct/GetProductCategories',
+    url: 'https://262b-81-19-209-53.ngrok-free.app/api/EcommerceProduct/GetProductCategories',
 
     headers: {
         'Content-Type': 'application/json',
@@ -68,13 +66,14 @@ $.ajax({
 })
 
 
+// where input Select2 is displayed
+
 var showInputsButton = document.getElementById("showInputsButton");
 var inputFields = [
     document.getElementById("inputField1"),
     document.getElementById("inputField2"),
     document.getElementById("inputField3"),
     document.getElementById("inputField4"),
-
 ];
 
 showInputsButton.addEventListener("click", function () {
@@ -85,8 +84,11 @@ showInputsButton.addEventListener("click", function () {
 
 
 
+
+
+// Select2 Variation Section
 $.ajax({
-    url: 'https://e5c4-81-19-209-53.ngrok-free.app/api/EcommerceProduct/GetProductVariations',
+    url: 'https://262b-81-19-209-53.ngrok-free.app/api/EcommerceProduct/GetProductVariations',
     headers: {
         'Content-Type': 'application/json',
         "ngrok-skip-browser-warning": "69420",
@@ -171,69 +173,51 @@ $.ajax({
 
 
 var quantityInput = document.getElementById('quantityInput');
-
-
 var showInputsButton = document.getElementById('showInputsButton');
-
-
-quantityInput.addEventListener('input', function () {
-
-    if (quantityInput.value.trim() !== '') {
-        showInputsButton.disabled = false;
-    } else {
-        showInputsButton.disabled = true;
-    }
-});
-
-showInputsButton.addEventListener('click', function () {
-
-    quantityInput.value = '';
-    showInputsButton.disabled = true;
-});
-
-
-
-var quantityInput = document.getElementById('quantityInput');
-
-
-var showInputsButton = document.getElementById('showInputsButton');
-
-
-var clearIcon = document.getElementById('clearIcon');
+var clearIcon = document.getElementById('clearIcons');
 var clearIconBelow = document.getElementById('clearIconBelow');
 
+
+
+// IF Quantity Input Type is null Button is disable 
+
 quantityInput.addEventListener('input', function () {
 
-    
-
     if (quantityInput.value.trim() !== '') {
-        clearIcon.style.display = 'inline-block';
+        clearIcon.style.display = 'block';
+
     } else {
-        clearIcon.style.display = 'none';
+        clearIcon.style.display = 'block';
+
     }
 });
 
-
+//Click on Small X Cross Button To Display None Whole Section
 clearIcon.addEventListener('click', function () {
     quantityInput.value = '';
+ 
     inputFields.forEach(function (inputField) {
         inputField.style.display = "none";
+        $("#quantityInput").prop('disabled', true);
+
     });
-    clearIcon.style.display = 'none';
+    clearIcon.style.display = 'block';
+    $("#quantityInput").prop('disabled', false);
+    
+
     quantityInput.focus();
 });
 
 
 
-
-
-  
+//Adding Dynamic Rows in Millat At Button OnClick Function
 
   function addRow() {
     var table = document.getElementById("myTable");
     var row = table.insertRow(-1);
 
-    var input1 = document.getElementById("variationCategory").value;
+    var input1 = document.getElementById("variationCategory");
+    var text = input1.options[input1.selectedIndex].text;
     var input2 = document.getElementById("variationCategory-child").value;
     var input3 = document.getElementById("input3").value;
 
@@ -242,12 +226,13 @@ clearIcon.addEventListener('click', function () {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = input1;
+    cell1.innerHTML = text;
     cell2.innerHTML = input2;
     cell3.innerHTML = input3;
     cell4.innerHTML = '<div onclick="removeRow(this)"><i class="fa-solid fa-trash-can" style="color: #d60505;"></div>';
 
     console.log("rows", row )
+    console.log("cell2", cell2.innerHTML)
 }
 
 
@@ -255,3 +240,140 @@ clearIcon.addEventListener('click', function () {
     var row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
   }
+
+
+
+
+//   //DropZone
+
+var arr = new Array()
+
+fetch("https://262b-81-19-209-53.ngrok-free.app/api/EcommerceProduct/GetProducts", {
+  headers: {
+    'Content-Type': 'application/json',
+    "ngrok-skip-browser-warning": "69420",
+  },
+})
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Network response was not ok.");
+    }
+  })
+  .then(function (data) {
+    const detailImageUrls = data[0].DetailImages.map(url => `https://7d47-72-255-34-82.ngrok-free.app${url}`);
+    console.log("data", data)
+
+    const container = document.createElement('div');
+    container.classList.add('image-container');
+
+    detailImageUrls.forEach(url => {
+      const imageContainer = document.createElement('div');
+      imageContainer.classList.add('image-item');
+
+      var image = new Image();
+      image.src = url;
+
+      arr.push(image.src)
+      console.log('File Added:', arr)
+
+      const removeLink = document.createElement('a');
+      removeLink.href = '#';
+      removeLink.className = 'dropzone-anchor'
+      removeLink.innerText = 'Cancel upload';
+      removeLink.addEventListener('click', function () {
+        imageContainer.remove();
+
+        arr = arr.filter(function (item) {
+          return item !== image.src
+        })
+        console.log("Removed File", arr)
+      });
+
+      imageContainer.appendChild(image);
+      imageContainer.appendChild(removeLink);
+      container.appendChild(imageContainer);
+    });
+
+    document.querySelector('.detail-images-container').appendChild(container);
+
+  });
+  var zdrop = new Dropzone('#my-dropzone', {
+    url: '#',
+    maxFiles: 2,
+    maxFilesize: 30,
+    addRemoveLinks: true,
+    
+   
+    init: function() {
+      this.on("complete", function(file) {      
+      });
+      this.on("removedfile", function(file) {
+        console.log('File is Removed');
+
+arr = arr.filter(function(item) {
+    return item !== file.name
+})
+console.log(arr) 
+    }); 
+  }    
+  });
+    // Override the default 'upload' function to handle the file and convert it to a Base64 string
+    Dropzone.prototype.uploadFiles = function (files) {
+      const self = this;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const base64String = e.target.result
+            self.emit("success", file, { base64String: base64String });   
+        arr.push(file.name)
+        console.log('File Added:',arr) 
+          };
+        reader.readAsDataURL(file);
+      }
+    };
+
+
+    
+
+
+
+
+
+
+
+$('#file').on('change', function() {
+    var file = this.files[0],
+        filename = file.name,
+        $label = $(this).next('.file-custom'),
+        $preview = $('#preview'),
+        img = document.createElement("img"),
+        reader = new FileReader();
+    
+    img.file = file;
+    img.classList.add("img-responsive");
+    $preview.html(img);
+    
+    reader.onload = (function(aImg) {
+      return function(e) {
+        aImg.src = e.target.result;
+      };
+    })(img);
+  
+    reader.readAsDataURL(file);
+    
+    $label
+      .attr('data-label', filename)
+        .addClass('active');
+  });
+
+
+  $("#showInputsButton").click(function() {
+    $("#quantityInput").attr('disabled', !$("#").attr('disabled'));
+  });
+
+  function disable(){
+    document.getElementById("quantityInput").disabled = "true";
+    }
