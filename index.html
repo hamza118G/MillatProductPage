@@ -128,41 +128,51 @@
           <div class="row">
             <div class="col">
               <p class="Product-Name">Product Name</p>
-              <input type="text" class="form-control" placeholder="First name">
+              <input type="text" id="Product-first-name" class="form-control" placeholder="First name">
             </div>
             <div class="col">
               <p class="Product-Name">Code</p>
-              <input type="text" class="form-control" placeholder="Last name" required>
+              <input type="number" id="Product-Code" class="form-control" placeholder="Last name" required>
             </div>
 
           </div>
 
           <div class="col">
             <p class="Product-Name">Categories</p>
-            <select id="a" class="js-data-example-ajax Dynamic-Select w-50" multiple="multiple" required></select>
+            <select id="a" class="js-data-example-ajax Dynamic-Select col-sm-6" multiple="multiple" required></select>
 
           </div>
         </form>
 
         <div class="checkbox-button">
           <p>BestSelling</p>
-          <input class="checkbox-adjust" type="checkbox" required>
+          <input class="checkbox-adjust" id="Product-Check" type="checkbox"  required>
 
           <p>Featured</p>
-          <input class="checkbox-adjust" type="checkbox" required>
+          <input class="checkbox-adjust" id="Featured-Check"  type="checkbox" required>
 
         </div>
 
 
         <div class="short-description">
           <h6>Short Description</h6>
-          <textarea name="short" id="Short" cols="98" rows="5"></textarea>
+          <div class="col-lg-12">
+            <div class="form-group">
+    
+              <textarea class="form-control" id="Short-description" cols="98" rows="5"></textarea>
+            </div>
+          </div>
         </div>
 
 
         <div class="full-description">
           <h6>Full Description</h6>
-          <textarea name="full" id="Full" cols="98" rows="8"></textarea>
+          <div class="col-lg-12">
+            <div class="form-group">
+             
+              <textarea class="form-control" id="Full-description" cols="98" rows="8"></textarea>
+            </div>
+          </div>
         </div>
 
         <hr class="slight-adjust">
@@ -175,12 +185,12 @@
 
         <div class="row">
           <div class="col">
-            <p class="Product-Name">Price</p>
-            <input type="text" class="form-control"required>
+            <p class="Product-Name" >Price</p>
+            <input type="text" id="Product-Price" class="form-control"required>
           </div>
           <div class="col">
             <p class="Product-Name">Discount </p>
-            <input type="text" class="form-control" required>
+            <input type="text" class="form-control" id="Product-Discount" required>
           </div>
 
         </div>
@@ -257,9 +267,9 @@
           <div id="preview"></div>
           
           <label class="file">
-            <span class="file-custom"></span>
+            
               <input type="file" id="file" accept="image/*" aria-label="File browser">
-             
+              <span class="file-custom"></span>
           </label>
         </div>
 
@@ -277,14 +287,14 @@
 
 
         
-        <form action="/target" id="my-dropzone" class="dropzone ">
-           <div class="detail-images-container"></div>
-        </form>
+          <div id="dropzone" class="dropzone">
+            <div id="a"></div>
+          </div>
 
 
         
         <div class="dropzone-submit">
-                  <button type="button"  class="btn btn-info dropzone-submit">Submit</button>
+                  <button type="button"  class="btn btn-info dropzone-submit" onclick="Approve()">Submit</button>
                 </div>
 
       
