@@ -1,0 +1,545 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+#getText {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#getText21 {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+.material-icons {
+    padding-bottom: 3px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 100px;
+
+
+}
+
+#getText11 {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#getText2 {
+    font-size: 20px;
+    color: #818181;
+}
+
+#getText2:hover {
+    color: #111;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+}
+
+.active .accordion-content {
+    display: block;
+}
+
+
+
+
+
+
+
+.container-fluid {
+    padding-left: 220px;
+}
+
+.testt {
+    padding-left: 220px;
+}
+
+.navbar-toggler {
+    font-size: 0.70rem;
+    color: black;
+}
+
+.navbar-light .navbar-toggler {
+    outline: none;
+    border-color: transparent;
+}
+
+select {
+    border: none;
+}
+
+.profile-img {
+    border-radius: 50%;
+    padding: 0 15px 0 0;
+
+
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-adjust {
+    float: left;
+    display: flex;
+}
+
+.section {
+    padding-left: 220px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.content-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+
+.content {
+    padding-left: 220px;
+    padding-right: 20px;
+    width: 100%;
+
+}
+
+.Product-page {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Product-heading {
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 20px;
+
+}
+
+.hr {
+    width: 90%;
+}
+
+.product-info-heading {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.row {
+    padding: 0 20px;
+}
+
+.Product-Name {
+    padding-top: 20px;
+}
+
+.adjust {
+    width: 50%;
+}
+
+select {
+    width: 50%
+}
+
+
+
+.checkbox-adjust {
+    appearance: none;
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 1rem;
+    position: relative;
+    background-color: #ccc;
+    transition: background-color .2s ease;
+
+    &:hover {
+        background-color: #009EE3;
+
+        &::before {
+            color: #fff;
+        }
+    }
+}
+
+input::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    height: 1rem;
+    width: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: .25rem;
+    z-index: 9;
+    will-change: transform;
+    transition: transform .2s ease;
+}
+
+input::before {
+    display: block;
+    position: absolute;
+    margin: .25rem .5rem;
+    content: "No";
+    font-size: 12px;
+    right: 0;
+    color: #000;
+}
+
+input:checked {
+    background-color: #004F8B;
+
+    &:hover {
+        background-color: #009EE3;
+    }
+
+    &::before {
+        content: "Yes";
+        left: 0;
+        color: #fff;
+    }
+
+    &::after {
+        transform: translateX(1.5rem);
+    }
+}
+
+.checkbox-button {
+    display: flex;
+    padding: 30px 0px 0 0;
+}
+
+.checkbox-button p {
+    padding: 0 20px;
+}
+
+.short-description {
+    padding: 0 20px;
+}
+
+.short-description h6 {
+    padding-top: 10px;
+}
+
+.full-description {
+    padding: 0 20px;
+}
+
+.Product-Price-heading {
+    padding-left: 20px;
+}
+
+.slight-adjust {
+    width: 85%;
+}
+
+.variation {
+    padding-left: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+    display: none;
+    
+}
+
+.Quantity-adjust {
+    width: 50%;
+    
+
+}
+
+.Quantity-button {
+    padding-top: 30px;
+}
+
+#employee-table {
+    width: 800px;
+    border: 1px solid #aaa;
+}
+
+#container {
+    margin: 0px auto;
+    width: 800px;
+    text-align: center;
+}
+
+.Quantity-table {
+    background-color: #f5f5f5;
+    height: 50px;
+    padding-left: 20px;
+}
+
+.inner-cell {
+    border: none;
+}
+
+.product-attribute-heading {
+    justify-content: space-between;
+    display: flex;
+}
+
+.row select {
+    width: 100%;
+}
+
+.input4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-attribute-arrow {
+    display: flex;
+    justify-content: end;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+   td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: #818181;
+  }
+  th{
+    height: 40px;
+    text-align: center;
+   
+  }
+ 
+  .wrap {
+    max-width: 30%;
+    padding-left: 20px;
+  }
+  
+  #preview {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color: #ddd;
+    border: 8px solid #fff;
+   
+  }
+  #preview:after {
+    content: "IMAGE NOT AVALIABLE";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+  }
+  #preview img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    min-height: 100%;
+  }
+  
+  .file {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 2.5rem;
+  }
+  .file input {
+    min-width: 30rem;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  .file input:focus ~ .file-custom {
+    box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.2rem #0074d9;
+  }
+  
+  .file-custom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: 2.5rem;
+    padding: 1rem 1rem 0;
+    line-height: 0.5;
+    color: #555;
+    background-color: #fff;
+    border: 0.075rem solid #ddd;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .file-custom:after {
+    content: "No file Choosen";
+    position: absolute;
+    right: 2rem
+  }
+  .file-custom.active:after {
+    content: attr(data-label);
+  }
+  .file-custom:before {
+    position: absolute;
+    top: -0.075rem;
+    right: 24.465rem;
+    bottom: -0.075rem;
+    z-index: 6;
+    display: block;
+    content: "Choose";
+    height: 2.5rem;
+    padding: 1rem 1rem 0;
+    line-height: 0.5;
+    color: #555;
+    background-color: #eee;
+    border: 0.075rem solid #ddd;
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+  .Product-img{
+  
+    padding-left: 10px;
+    padding-top: 80px;
+  }
+
+  .Multiple-Images{
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  .detail-images-container img{
+    width: 100px;
+    height: 100px;
+  }
+  .image-container{
+  
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dropzone.dz-clickable {
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.dropzone {
+    min-height: 100px;
+    background: #fff;
+    padding: 20px 20px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+.dropzone a{
+    display: flow-root;
+}
+
+.dropzone-anchor{
+    font-size: 14px;
+}
+.dropzone-submit{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.submit-button{
+    margin-left: 20px;
+    margin-top: 50px;
+
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    text-align: center;
+    align-items: center;
+    padding-right: 50px;
+    padding-left: 10px;
+}
+.footer-left{
+    padding-left: 50px;
+}
